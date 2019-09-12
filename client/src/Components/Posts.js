@@ -6,20 +6,18 @@ class Posts extends React.Component{
     posts: [],
   }
   componentDidMount(){
-    axios.get('http://localhost:3000/posts')
+    axios.get('http://localhost:3000/users')
     .then(response=>{
       this.setState({
         posts: response.data
       })
-      console.log(response, 'response')
     })
   }
   render(){
-    console.log(this.state.posts, 'post')
+    console.log(this.state.posts[0], 'post')
     return(
       <div>
       <p>help me</p>
-      
       </div>
     )
   }
