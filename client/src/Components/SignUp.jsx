@@ -2,10 +2,10 @@ import React from 'react'
 
 export default class Signup extends React.Component {
 
- handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault()
     console.log('working')
-  } 
+  }
   render() {
     return (
       <div className='signup-ctr'>
