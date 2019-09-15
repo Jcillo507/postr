@@ -1,26 +1,39 @@
-import React from 'react'
-import axios from 'axios'
+import React from "react";
+import { withRouter } from "react-router";
 
-class Posts extends React.Component{
-  state= {
-    posts: [],
-  }
-  componentDidMount(){
-    axios.get('http://localhost:3000/users')
-    .then(response=>{
-      this.setState({
-        posts: response.data
-      })
-    })
-  }
-  render(){
-    console.log(this.state.posts[0], 'post')
-    return(
-      <div>
-      <p>help me</p>
+function Posts(props) {
+  return (
+    <div>
+      {/* {props.posts.map(post => (
+        <div
+          key={post.id}
+          className="post-card"
+          onClick={() => {
+            props.history.push(`/posts/${post.id}`);
+            window.scrollTo(0, 0);
+          }}
+        >
+          <div className="image-cropper">
+            <img alt={post.name} src={post.photo} />
+          </div>
+          <h3>
+            <p>{post.name}</p>
+          </h3>
+        </div>
+      ))} */}
+      <div
+        
+        onClick={() => props.history.push("/new/post")}
+      >
+        <img
+          alt="Create a new instructor"
+          src="https://image.flaticon.com/icons/png/512/14/14980.png"
+          className="plus-sign"
+        />
+        <h3>Create a new instructor</h3>
       </div>
-    )
-  }
+    </div>
+  );
 }
 
-export default Posts
+export default withRouter(Posts);

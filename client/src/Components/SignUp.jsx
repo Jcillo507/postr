@@ -1,32 +1,38 @@
-import React from 'react'
+import React from "react";
 
-export default class Signup extends React.Component {
+// This component handles our register form
+const Signup = props => {
+  return (
+    <div>
+      <h2>Register</h2>
+      <hr />
+      <form onSubmit={props.handleSignup}>
+        <p>Username:</p>
+        <input
+          name="username"
+          type="text"
+          value={props.formData.username}
+          onChange={props.handleChange}
+        />
+        <p>Email:</p>
+        <input
+          name="email"
+          type="text"
+          value={props.formData.email}
+          onChange={props.handleChange}
+        />
+        <p>Password:</p>
+        <input
+          name="password"
+          type="password"
+          value={props.formData.password}
+          onChange={props.handleChange}
+        />
+        <hr />
+        <button>Sign Up</button>
+      </form>
+    </div>
+  );
+};
 
-  handleSubmit(e) {
-    e.preventDefault()
-    console.log('working')
-  }
-  render() {
-    return (
-      <div className='signup-ctr'>
-        <form>
-          <label>
-            Name:
-      <input type="text" name="name" />
-          </label>
-          <label>
-            Email:
-      <input type="text" name="email" />
-          </label>
-          <label>
-            Password:
-      <input type="password" name="password" />
-          </label>
-          <label>
-            <input type="submit" name="submit" onClick={this.handleSubmit} />
-          </label>
-        </form>
-      </div>
-    )
-  }
-}
+export default Signup;

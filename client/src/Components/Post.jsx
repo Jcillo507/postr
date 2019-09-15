@@ -1,22 +1,78 @@
-import React from 'react'
+import React, { Component } from "react";
+import PostEdit from "./PostEdit";
+import { Route } from "react-router-dom";
+import { withRouter } from "react-router";
 
-export default class Post extends React.Component{
-  handleSubmit(e) {
-    e.preventDefault()
-    console.log('working')
+class Post extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEdit: false
+    };
   }
-render(){
-  return(
-    <div>
-      <form>
-        <label>
-          <input type="text" placeholder="Post your thoughts" name="post" />
-        </label>
-        <label>
-        <input type="submit" name="submit" onClick={this.handleSubmit} />
-        </label>
-      </form>
-    </div>
-  )
+
+  componentDidMount() {
+    this.props.mountEditForm(this.props.id);
+  }
+
+  render() {
+    const { post } = this.props;
+    return (
+      <div>
+        {post === undefined ? (
+          <h2>Loading . . .</h2>
+        ) : (
+          <div>
+            <img alt={post.name} src={post.photo} />
+            <h1>{post.name}</h1>
+            <p>{post.description}</p>
+            <a href={post.link}>Connect</a>
+            <hr />
+            {this.state.isEdit ? (
+              <Route
+                path={"/posts/:id/edit"}
+                render={() => (
+                  <PostEdit
+                    handleFormChange={this.props.handleFormChange}
+                    handleSubmit={e => {
+                      e.preventDefault();
+                      this.props.editPost();
+                      this.setState({ isEdit: false });
+                      this.props.history.push(
+                        `/posts/${this.props.postForm.id}`
+                      );
+                    }}
+                    postForm={this.props.postForm}
+                  />
+                )}
+              />
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    this.setState({
+                      isEdit: true
+                    });
+                    this.props.history.push(`/posts/${post.id}/edit`);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => {
+                    this.props.deletePost(post.id);
+                    this.props.history.push("/");
+                  }}
+                >
+                  Delete
+                </button>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 }
-}
+
+export default withRouter(Post);
