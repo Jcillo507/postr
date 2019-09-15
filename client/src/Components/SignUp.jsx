@@ -9,9 +9,9 @@ const Signup = props => {
       <form onSubmit={props.handleSignup}>
         <p>Username:</p>
         <input
-          name="username"
+          name="name"
           type="text"
-          value={props.formData.username}
+          value={props.formData.name}
           onChange={props.handleChange}
         />
         <p>Email:</p>

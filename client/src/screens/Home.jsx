@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-
-
 import Posts from "./components/Posts";
 import Post from "./components/Post";
 import PostCreate from "./components/PostCreate";
@@ -23,13 +21,12 @@ import {
 
 import "./App.css";
 
-class App extends Component {
+class Home extends Component {
   state = {
     posts: [],
     postForm: {
       content: "",
-      description: "",
-
+      description: ""
     },
     currentUser: null,
     authFormData: {
@@ -53,8 +50,7 @@ class App extends Component {
       posts: [...prevState.posts, post],
       postForm: {
         content: "",
-        description: "",
-        
+        description: ""
       }
     }));
   };
@@ -84,7 +80,6 @@ class App extends Component {
         [name]: value
       }
     }));
-    
   };
 
   mountEditForm = async id => {
@@ -115,7 +110,7 @@ class App extends Component {
     e.preventDefault();
     await registerUser(this.state.authFormData);
     this.handleLogin();
-    console.log('working 117')
+    console.log("working 117");
     this.props.history.push("/");
   };
 
@@ -226,7 +221,9 @@ class App extends Component {
           path="/posts/:id"
           render={props => {
             const { id } = props.match.params;
-            const post = this.state.posts.find(post => post.id === parseInt(id));
+            const post = this.state.posts.find(
+              post => post.id === parseInt(id)
+            );
             return (
               <Post
                 id={id}
@@ -245,5 +242,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
-
+export default withRouter(Home);

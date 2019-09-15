@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 function Posts(props) {
   return (
     <div>
-      {/* {props.posts.map(post => (
+      {props.posts.map(post => (
         <div
           key={post.id}
           className="post-card"
@@ -20,17 +20,10 @@ function Posts(props) {
             <p>{post.name}</p>
           </h3>
         </div>
-      ))} */}
-      <div
-        
-        onClick={() => props.history.push("/new/post")}
-      >
-        <img
-          alt="Create a new instructor"
-          src="https://image.flaticon.com/icons/png/512/14/14980.png"
-          className="plus-sign"
-        />
-        <h3>Create a new instructor</h3>
+      ))}
+      <div onClick={() => props.history.push("/new/post")}>
+      
+        <h3>Create a new Post</h3>
       </div>
     </div>
   );

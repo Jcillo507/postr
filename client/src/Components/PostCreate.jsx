@@ -10,18 +10,12 @@ function PostCreate(props) {
 
         <input
           type="text"
-          name="name"
+          name="content"
           value={props.postForm.name}
           onChange={props.handleFormChange}
         />
 
-        <p>Photo Link:</p>
-        <input
-          type="text"
-          name="photo"
-          value={props.postForm.photo}
-          onChange={props.handleFormChange}
-        />
+    
         <br />
         <button>Submit</button>
       </form>
