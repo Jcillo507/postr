@@ -4,23 +4,7 @@ import { withRouter } from "react-router";
 function Posts(props) {
   return (
     <div>
-      {props.posts.map(post => (
-        <div
-          key={post.id}
-          className="post-card"
-          onClick={() => {
-            props.history.push(`/posts/${post.id}`);
-            window.scrollTo(0, 0);
-          }}
-        >
-          <div className="image-cropper">
-            <img alt={post.name} src={post.photo} />
-          </div>
-          <h3>
-            <p>{post.name}</p>
-          </h3>
-        </div>
-      ))}
+
       <div onClick={() => props.history.push("/new/post")}>
       
         <h3>Create a new Post</h3>

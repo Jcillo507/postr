@@ -5,7 +5,7 @@ function PostCreate(props) {
   return (
     <div>
       <h2>Create a new post</h2>
-      <form onSubmit={props.newPost}>
+      <form onSubmit={props.createPost}>
         <p>Post's name:</p>
 
         <input

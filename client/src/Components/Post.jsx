@@ -23,10 +23,7 @@ class Post extends Component {
           <h2>Loading . . .</h2>
         ) : (
           <div>
-            <img alt={post.name} src={post.photo} />
-            <h1>{post.name}</h1>
-            <p>{post.description}</p>
-            <a href={post.link}>Connect</a>
+            <h1>{post.content}</h1>
             <hr />
             {this.state.isEdit ? (
               <Route
