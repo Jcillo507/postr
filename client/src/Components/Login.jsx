@@ -13,7 +13,7 @@ const Login = props => {
           props.handleLogin();
         }}
       >
-        <p>Username:</p>
+        <p>Please enter your user name</p>
         <input
           name="name"
           type="text"

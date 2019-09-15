@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-import Posts from "./components/Posts";
-import Post from "./components/Post";
-import PostCreate from "./components/PostCreate";
+import Posts from "../components/Posts";
+import Post from "../components/Post";
+import PostCreate from "../components/PostCreate";
 
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 
 import {
   createPost,
@@ -17,16 +17,15 @@ import {
   loginUser,
   registerUser,
   verifyUser
-} from "./services/api-helper";
+} from "../services/api-helper";
 
-import "./App.css";
+
 
 class Home extends Component {
   state = {
     posts: [],
     postForm: {
       content: "",
-      description: ""
     },
     currentUser: null,
     authFormData: {
@@ -43,16 +42,16 @@ class Home extends Component {
     });
   };
 
-  newPost = async e => {
+  createPost = async e => {
     e.preventDefault();
     const post = await createPost(this.state.postForm);
     this.setState(prevState => ({
       posts: [...prevState.posts, post],
       postForm: {
         content: "",
-        description: ""
       }
     }));
+    
   };
 
   editPost = async () => {
@@ -103,14 +102,13 @@ class Home extends Component {
     this.setState({
       currentUser: userData
     });
-    console.log("working 111");
+    this.props.history.push("/");
   };
 
   handleSignup = async e => {
     e.preventDefault();
     await registerUser(this.state.authFormData);
     this.handleLogin();
-    console.log("working 117");
     this.props.history.push("/");
   };
 
@@ -144,17 +142,15 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>
+        <header className="header-ctr">
+          <h1 className="header-title">
             <Link
               to="/"
               onClick={() =>
                 this.setState({
                   postForm: {
-                    name: "",
-                    description: "",
-                    link: "",
-                    photo: ""
+                    content: "",
+                
                   }
                 })
               }
@@ -162,7 +158,7 @@ class Home extends Component {
               Postr
             </Link>
           </h1>
-          <div>
+          <div className="header-log-button">
             {this.state.currentUser ? (
               <>
                 <p>{this.state.currentUser.name}</p>
@@ -203,7 +199,7 @@ class Home extends Component {
               posts={this.state.posts}
               postForm={this.state.postForm}
               handleFormChange={this.handleFormChange}
-              newPost={this.newPost}
+              createPost={this.createPost}
             />
           )}
         />
@@ -213,7 +209,7 @@ class Home extends Component {
             <PostCreate
               handleFormChange={this.handleFormChange}
               postForm={this.state.postForm}
-              newpost={this.newpost}
+              createPost={this.createPost}
             />
           )}
         />
