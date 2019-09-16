@@ -27,30 +27,31 @@ const verifyUser = async () => {
   return false;
 };
 
-const createPost = async data => {
-  const resp = await api.post("/posts", { post: data});
+const id =localStorage.getItem('userId')
+const createPost = async (data) => {
+  const resp = await api.post(`/users/${id}/posts`, { post: data});
   console.log(data, "working")
   return resp;
 
 };
 
 const readAllPosts = async () => {
-  const resp = await api.get("/posts");
+  const resp = await api.get(`/feed`);
   return resp.data;
 };
 
-const readOnePost = async id => {
-  const resp = await api.get(`/posts/${id}`);
+const readOnePost = async (postid) => {
+  const resp = await api.get(`users/${id}/posts/${postid}`);
   return resp.data;
 };
 
-const updatePost = async (id, data) => {
-  const resp = await api.put(`/posts/${id}`, { post: data });
+const updatePost = async (id, data, userId) => {
+  const resp = await api.put(`users/${userId}/posts/${id}`, { post: data });
   return resp.data;
 };
 
-const destroyPost = async id => {
-  const resp = await api.delete(`/posts/${id}`);
+const destroyPost = async (id, userId) => {
+  const resp = await api.delete(`users/${userId}/posts/${id}`);
   return resp.data;
 };
 

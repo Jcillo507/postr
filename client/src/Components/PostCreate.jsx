@@ -2,6 +2,8 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 function PostCreate(props) {
+  const id = localStorage.getItem("userId");
+  console.log(props)
   return (
     <div>
       <h2>Create a new post</h2>
@@ -14,12 +16,15 @@ function PostCreate(props) {
           value={props.postForm.name}
           onChange={props.handleFormChange}
         />
+        <input
+          type="hidden"
+          name="user_id"
+          value={id}
+          onChange={props.handleFormChange}
+        />
 
-    
         <br />
-        <button 
-        // onClick={()=>{console.log(userData)}}
-        >Post</button>
+        <button>Post</button>
       </form>
     </div>
   );

@@ -10,7 +10,7 @@ function PostEdit(props) {
 
         <input
           type="text"
-          name="name"
+          name="content"
           value={props.postForm.name}
           onChange={props.handleFormChange}
         />

@@ -5,11 +5,11 @@ import Posts from "../components/Posts";
 import Post from "../components/Post";
 import PostCreate from "../components/PostCreate";
 import Login from "../components/Login";
-import Signup from "../components/Signup";
+import Signup from "../components/SignUp";
 
 import {
   createPost,
-  readAllPosts,
+  
   updatePost,
   destroyPost,
   loginUser,
@@ -32,20 +32,17 @@ class Home extends Component {
     }
   };
 
-  getPosts = async () => {
-    const data = await readAllPosts();
-    this.setState({
-      posts: data.posts
-    });
-  };
+
 
   createPost = async e => {
     e.preventDefault();
+    const id =localStorage.getItem('userId')
     const post = await createPost(this.state.postForm);
     this.setState(prevState => ({
       posts: [...prevState.posts, post],
       postForm: {
         content: "",
+        userId: id
       }
     }));
     
@@ -76,15 +73,6 @@ class Home extends Component {
         [name]: value
       }
     }));
-  };
-
-  mountEditForm = async id => {
-    const posts = await readAllPosts();
-    const post = posts.find(post => post.id === parseInt(id));
-    this.setState({
-      posts,
-      postForm: post
-    });
   };
 
   // -------------- AUTH ------------------
@@ -127,7 +115,7 @@ class Home extends Component {
   };
 
   async componentDidMount() {
-    this.getPosts();
+    
     const user = await verifyUser();
     if (user) {
       this.setState({
