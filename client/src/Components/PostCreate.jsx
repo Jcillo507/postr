@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 function PostCreate(props) {
+  console.log(props)
   return (
     <div>
       <h2>Create a new post</h2>
@@ -14,10 +15,9 @@ function PostCreate(props) {
           value={props.postForm.name}
           onChange={props.handleFormChange}
         />
-
     
         <br />
-        <button>Submit</button>
+        <button>Post</button>
       </form>
     </div>
   );

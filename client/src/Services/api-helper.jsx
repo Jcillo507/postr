@@ -30,6 +30,7 @@ const verifyUser = async () => {
 
 const createPost = async data => {
   const resp = await api.post("/posts", { post: data });
+  console.log(data)
   return resp.data;
 };
 

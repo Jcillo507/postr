@@ -2,18 +2,16 @@ import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-import Posts from "../components/Posts";
-import Post from "../components/Post";
-import PostCreate from "../components/PostCreate";
+import Posts from "./Posts";
+import Post from "./Post";
+import PostCreate from "./PostCreate";
 
-import Login from "../components/Login";
-import Signup from "../components/Signup";
+import Login from "./Login";
+import Signup from "./SignUp"
 
 import {
   createPost,
   readAllPosts,
-  updatePost,
-  destroyPost,
   loginUser,
   registerUser,
   verifyUser
@@ -26,6 +24,7 @@ class Home extends Component {
     posts: [],
     postForm: {
       content: "",
+      user_id:""
     },
     currentUser: null,
     authFormData: {
@@ -37,6 +36,7 @@ class Home extends Component {
 
   getPosts = async () => {
     const data = await readAllPosts();
+    console.log(data)
     this.setState({
       posts: data.posts
     });
@@ -44,32 +44,19 @@ class Home extends Component {
 
   createPost = async e => {
     e.preventDefault();
+    const id = localStorage.getItem('userId')
     const post = await createPost(this.state.postForm);
+    console.log (post)
     this.setState(prevState => ({
       posts: [...prevState.posts, post],
       postForm: {
         content: "",
+        user_id: 'id'
       }
     }));
     
   };
 
-  editPost = async () => {
-    const { postForm } = this.state;
-    await updatePost(postForm.id, postForm);
-    this.setState(prevState => ({
-      posts: prevState.posts.map(post =>
-        post.id === postForm.id ? postForm : post
-      )
-    }));
-  };
-
-  deletePost = async id => {
-    await destroyPost(id);
-    this.setState(prevState => ({
-      posts: prevState.posts.filter(post => post.id !== id)
-    }));
-  };
 
   handleFormChange = e => {
     const { name, value } = e.target;
@@ -81,14 +68,6 @@ class Home extends Component {
     }));
   };
 
-  mountEditForm = async id => {
-    const posts = await readAllPosts();
-    const post = posts.find(el => el.id === parseInt(id));
-    this.setState({
-      posts,
-      postForm: post
-    });
-  };
 
   // -------------- AUTH ------------------
 
@@ -140,8 +119,10 @@ class Home extends Component {
   }
 
   render() {
+    const id = localStorage.getItem("userId");
+    console.log(id, );
     return (
-      <div className="App">
+      <div className="home-ctr">
         <header className="header-ctr">
           <h1 className="header-title">
             <Link
@@ -150,6 +131,7 @@ class Home extends Component {
                 this.setState({
                   postForm: {
                     content: "",
+                    user_id: id
                 
                   }
                 })
@@ -213,26 +195,7 @@ class Home extends Component {
             />
           )}
         />
-        <Route
-          path="/posts/:id"
-          render={props => {
-            const { id } = props.match.params;
-            const post = this.state.posts.find(
-              post => post.id === parseInt(id)
-            );
-            return (
-              <Post
-                id={id}
-                post={post}
-                handleFormChange={this.handleFormChange}
-                mountEditForm={this.mountEditForm}
-                edi={this.edi}
-                postForm={this.state.postForm}
-                deletePost={this.deletePost}
-              />
-            );
-          }}
-        />
+        
       </div>
     );
   }
