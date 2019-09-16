@@ -2,8 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 function PostCreate(props) {
-  const id = localStorage.getItem("userId");
-  console.log(props)
+  const id = localStorage.getItem('userId')
   return (
     <div>
       <h2>Create a new post</h2>
@@ -17,9 +16,9 @@ function PostCreate(props) {
           onChange={props.handleFormChange}
         />
         <input
-          type="hidden"
+          type="text"
           name="user_id"
-          value={id}
+          value={props.postForm.id}
           onChange={props.handleFormChange}
         />
 
