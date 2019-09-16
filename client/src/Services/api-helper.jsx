@@ -40,18 +40,19 @@ const readAllPosts = async () => {
   return resp.data;
 };
 
-const readOnePost = async (postid) => {
-  const resp = await api.get(`users/${id}/posts/${postid}`);
+const readOnePost = async (postId) => {
+  const resp = await api.get(`users/${id}/posts/${postId}`);
   return resp.data;
 };
 
-const updatePost = async (id, data, userId) => {
-  const resp = await api.put(`users/${userId}/posts/${id}`, { post: data });
+const updatePost = async (postId, data, userId) => {
+  console.log(postId, data, userId);
+  const resp = await api.put(`users/${userId}/posts/${postId}`, { post: data });
   return resp.data;
 };
 
-const destroyPost = async (id, userId) => {
-  const resp = await api.delete(`users/${userId}/posts/${id}`);
+const destroyPost = async (postId, userId) => {
+  const resp = await api.delete(`users/${userId}/posts/${postId}`);
   return resp.data;
 };
 

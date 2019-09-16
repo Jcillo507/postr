@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import { readAllPosts } from "../services/api-helper";
+import Post from '../components/Post'
 class Posts extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +21,6 @@ getPosts = async () =>{
     this.getPosts()
   }
   render() {
-    // const id = localStorage.getItem('userId')
     return (
       <div> 
         <Link
@@ -37,8 +37,12 @@ getPosts = async () =>{
           Create a new Post
         </Link>
         <div>
+
           {this.state.posts.map(post => (
+            <Link to={`posts/${post.id}`}>
             <h2>{post.content}</h2>
+            </Link>
+            
           ))}
         </div>
       </div>

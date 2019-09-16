@@ -17,8 +17,6 @@ function PostCreate(props) {
           onChange={props.handleFormChange}
         />
       
-  
-
         <br />
         <button>Post</button>
       </form>

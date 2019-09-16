@@ -9,7 +9,7 @@ import Signup from "../components/SignUp";
 
 import {
   createPost,
-  
+  readAllPosts,
   updatePost,
   destroyPost,
   loginUser,
@@ -21,8 +21,7 @@ class Home extends Component {
   state = {
     posts: [],
     postForm: {
-      content: "",
-
+      content: ""
     },
     currentUser: null,
     authFormData: {
@@ -32,24 +31,22 @@ class Home extends Component {
     }
   };
 
-
-
   createPost = async e => {
     e.preventDefault();
-    const id =localStorage.getItem('userId')
+    const id = localStorage.getItem("userId");
     const post = await createPost(this.state.postForm);
     this.setState(prevState => ({
       posts: [...prevState.posts, post],
       postForm: {
-        content: "",
+        content: ""
       }
     }));
-    
   };
 
-  editPost = async () => {
+  updatePost = async () => {
     const { postForm } = this.state;
-    await updatePost(postForm.id, postForm);
+    console.log(this.state)
+    await updatePost(postForm.id, postForm, postForm.userId);
     this.setState(prevState => ({
       posts: prevState.posts.map(post =>
         post.id === postForm.id ? postForm : post
@@ -69,10 +66,17 @@ class Home extends Component {
     this.setState(prevState => ({
       postForm: {
         ...prevState.postForm,
-        [name]: value,
-    
+        [name]: value
       }
     }));
+  };
+  mountEditForm = async id => {
+    const posts = await readAllPosts();
+    const post = posts.find(el => el.id === parseInt(id));
+    this.setState({
+      posts,
+      postForm: post
+    });
   };
 
   // -------------- AUTH ------------------
@@ -83,7 +87,7 @@ class Home extends Component {
 
   handleLogin = async () => {
     const userData = await loginUser(this.state.authFormData);
-     localStorage.setItem('userId',userData.id);
+    localStorage.setItem("userId", userData.id);
     this.setState({
       currentUser: userData
     });
@@ -115,7 +119,6 @@ class Home extends Component {
   };
 
   async componentDidMount() {
-    
     const user = await verifyUser();
     if (user) {
       this.setState({
@@ -134,8 +137,7 @@ class Home extends Component {
               onClick={() =>
                 this.setState({
                   postForm: {
-                    content: "",
-                
+                    content: ""
                   }
                 })
               }
@@ -211,7 +213,7 @@ class Home extends Component {
                 post={post}
                 handleFormChange={this.handleFormChange}
                 mountEditForm={this.mountEditForm}
-                edit={this.edit}
+                updatePost={this.updatePost}
                 postForm={this.state.postForm}
                 deletePost={this.deletePost}
               />

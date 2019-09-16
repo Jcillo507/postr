@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PostEdit from "./PostEdit";
 import { Route } from "react-router-dom";
 import { withRouter } from "react-router";
+import { updatePost } from '../services/api-helper'
 
 class Post extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Post extends Component {
 
   render() {
     const { post } = this.props;
+    const id = localStorage.getItem('userId')
     return (
       <div>
         {post === undefined ? (
@@ -27,13 +29,13 @@ class Post extends Component {
             <hr />
             {this.state.isEdit ? (
               <Route
-                path={"/posts/:id/edit"}
+                path={"/posts/:id"}
                 render={() => (
                   <PostEdit
                     handleFormChange={this.props.handleFormChange}
                     handleSubmit={e => {
                       e.preventDefault();
-                      this.props.editPost();
+                      updatePost();
                       this.setState({ isEdit: false });
                       this.props.history.push(
                         `/posts/${this.props.postForm.id}`
