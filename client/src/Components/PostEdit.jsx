@@ -6,7 +6,7 @@ function PostEdit(props) {
     <div>
       <h3>Edit post</h3>
       <form onSubmit={props.handleSubmit}>
-        <p>Post's name:</p>
+        <p>Post</p>
 
         <input
           type="text"

@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 // This component handles our register form
 const Signup = props => {
@@ -35,4 +36,4 @@ const Signup = props => {
   );
 };
 
-export default Signup;
+export default withRouter(Signup);

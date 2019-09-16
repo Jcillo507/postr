@@ -11,6 +11,7 @@ const Login = props => {
         onSubmit={e => {
           e.preventDefault();
           props.handleLogin();
+         
         }}
       >
         <p>Please enter your user name</p>

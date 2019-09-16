@@ -7,7 +7,6 @@ const api = axios.create({
 
 const loginUser = async loginData => {
   const resp = await api.post("/auth/login", loginData);
-  console.log(resp);
   localStorage.setItem("authToken", resp.data.token);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
   return resp.data.user;
@@ -30,7 +29,9 @@ const verifyUser = async () => {
 
 const createPost = async data => {
   const resp = await api.post("/posts", { post: data });
-  return resp.data;
+  console.log(resp, "working")
+  return 'resp';
+
 };
 
 const readAllPosts = async () => {

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
-
 import Posts from "../components/Posts";
 import Post from "../components/Post";
 import PostCreate from "../components/PostCreate";
-
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 
@@ -19,13 +17,12 @@ import {
   verifyUser
 } from "../services/api-helper";
 
-
-
 class Home extends Component {
   state = {
     posts: [],
     postForm: {
       content: "",
+
     },
     currentUser: null,
     authFormData: {
@@ -83,7 +80,7 @@ class Home extends Component {
 
   mountEditForm = async id => {
     const posts = await readAllPosts();
-    const post = posts.find(el => el.id === parseInt(id));
+    const post = posts.find(post => post.id === parseInt(id));
     this.setState({
       posts,
       postForm: post
@@ -94,11 +91,11 @@ class Home extends Component {
 
   handleLoginButton = () => {
     this.props.history.push("/login");
-    console.log("working 104");
   };
 
   handleLogin = async () => {
     const userData = await loginUser(this.state.authFormData);
+     localStorage.setItem('userId',userData.id);
     this.setState({
       currentUser: userData
     });
@@ -226,7 +223,7 @@ class Home extends Component {
                 post={post}
                 handleFormChange={this.handleFormChange}
                 mountEditForm={this.mountEditForm}
-                edi={this.edi}
+                edit={this.edit}
                 postForm={this.state.postForm}
                 deletePost={this.deletePost}
               />

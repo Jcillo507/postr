@@ -6,7 +6,7 @@ function PostCreate(props) {
     <div>
       <h2>Create a new post</h2>
       <form onSubmit={props.createPost}>
-        <p>Post's name:</p>
+        <p>Post your thoughts</p>
 
         <input
           type="text"
@@ -17,7 +17,9 @@ function PostCreate(props) {
 
     
         <br />
-        <button>Submit</button>
+        <button 
+        // onClick={()=>{console.log(userData)}}
+        >Post</button>
       </form>
     </div>
   );
