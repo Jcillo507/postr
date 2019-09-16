@@ -38,15 +38,17 @@ class Home extends Component {
     this.setState(prevState => ({
       posts: [...prevState.posts, post],
       postForm: {
-        content: ""
+        content: "",
+       
       }
     }));
   };
 
-  updatePost = async () => {
+  updatePost = async (e, id) => {
+    e.preventDefault()
     const { postForm } = this.state;
     console.log(this.state)
-    await updatePost(postForm.id, postForm, postForm.userId);
+    await updatePost(id, postForm);
     this.setState(prevState => ({
       posts: prevState.posts.map(post =>
         post.id === postForm.id ? postForm : post

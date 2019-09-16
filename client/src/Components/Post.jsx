@@ -35,12 +35,13 @@ class Post extends Component {
                     handleFormChange={this.props.handleFormChange}
                     handleSubmit={e => {
                       e.preventDefault();
-                      updatePost();
+                      
                       this.setState({ isEdit: false });
                       this.props.history.push(
                         `/posts/${this.props.postForm.id}`
                       );
                     }}
+                    updatePost={this.props.updatePost}
                     postForm={this.props.postForm}
                   />
                 )}

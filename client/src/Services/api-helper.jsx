@@ -45,8 +45,8 @@ const readOnePost = async (postId) => {
   return resp.data;
 };
 
-const updatePost = async (postId, data, userId) => {
-  console.log(postId, data, userId);
+const updatePost = async (postId, data) => {
+  const userId = localStorage.getItem('userId')
   const resp = await api.put(`users/${userId}/posts/${postId}`, { post: data });
   return resp.data;
 };
