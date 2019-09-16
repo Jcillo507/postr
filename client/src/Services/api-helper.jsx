@@ -28,9 +28,9 @@ const verifyUser = async () => {
 };
 
 const createPost = async data => {
-  const resp = await api.post("/posts", { post: data });
-  console.log(resp, "working")
-  return 'resp';
+  const resp = await api.post("/posts", { post: data});
+  console.log(data, "working")
+  return resp;
 
 };
 

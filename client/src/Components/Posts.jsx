@@ -8,6 +8,7 @@ class Posts extends React.Component{
   this.state= {
     posts: [],
   }
+
 }
   componentDidMount(){
     axios.get('http://localhost:3000/posts')
@@ -17,10 +18,10 @@ class Posts extends React.Component{
       })
     })
   }
-  render(props){
-    console.log(this.state.posts, 'post')
-    return (
-      <div>
+  render(){
+    console.log(this.state.posts, 'post', localStorage)
+      return (
+        <div>
         <Link
           to="/new/post"
           onClick={() =>
@@ -30,9 +31,10 @@ class Posts extends React.Component{
               }
             })
           }
-        >
+          >
           Create a new Post
         </Link>
+        <div>{this.state.posts.map(post=>(<h2>{post.content}</h2>))}</div>
       </div>
     );
   }
