@@ -42,7 +42,6 @@ class Home extends Component {
       posts: [...prevState.posts, post],
       postForm: {
         content: "",
-        userId: id
       }
     }));
     
@@ -70,7 +69,8 @@ class Home extends Component {
     this.setState(prevState => ({
       postForm: {
         ...prevState.postForm,
-        [name]: value
+        [name]: value,
+    
       }
     }));
   };

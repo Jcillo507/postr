@@ -20,7 +20,7 @@ getPosts = async () =>{
     this.getPosts()
   }
   render() {
-    const id = localStorage.getItem('userId')
+    // const id = localStorage.getItem('userId')
     return (
       <div> 
         <Link
@@ -29,7 +29,7 @@ getPosts = async () =>{
             this.setState({
               postForm: {
                 content: "", 
-                user_id: id,
+                userId: "",
               }
             })
           }

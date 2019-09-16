@@ -25,8 +25,8 @@ class PostsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @post = Post.new(post_params)
+    @user.posts.push(@post)
     if @post.save
-      @user.posts.push(@post)
       render json: @post, status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
