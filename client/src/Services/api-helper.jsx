@@ -5,6 +5,8 @@ const api = axios.create({
   baseURL: baseUrl
 });
 
+const id = localStorage.getItem("userId");
+
 const loginUser = async loginData => {
   const resp = await api.post("/auth/login", loginData);
   localStorage.setItem("authToken", resp.data.token);
@@ -27,12 +29,10 @@ const verifyUser = async () => {
   return false;
 };
 
-const id =localStorage.getItem('userId')
-const createPost = async (data ) => {
-  const resp = await api.post(`/users/${id}/posts`, { post: data});
-  console.log(data, "working")
+const createPost = async data => {
+  const resp = await api.post(`/users/${id}/posts`, { post: data });
+  console.log(data, "working");
   return resp;
-
 };
 
 const readAllPosts = async () => {
@@ -40,13 +40,13 @@ const readAllPosts = async () => {
   return resp.data;
 };
 
-const readOnePost = async (postId) => {
+const readOnePost = async postId => {
   const resp = await api.get(`users/${id}/posts/${postId}`);
   return resp.data;
 };
 
 const updatePost = async (postId, data) => {
-  const userId = localStorage.getItem('userId')
+  const userId = localStorage.getItem("userId");
   const resp = await api.put(`users/${userId}/posts/${postId}`, { post: data });
   return resp.data;
 };

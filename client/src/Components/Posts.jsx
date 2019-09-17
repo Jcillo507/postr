@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Link } from "react-router-dom";
 import { readAllPosts } from "../services/api-helper";
 import Post from '../components/Post'
+
 class Posts extends React.Component {
   constructor(props) {
     super(props);
