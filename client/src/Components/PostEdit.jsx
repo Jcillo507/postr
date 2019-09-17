@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import "./postEdit.css"
 
 function PostEdit(props) {
-  console.log(props)
   return (
     <div className="edit-ctr">
       <h3 className="edit-title">Edit post</h3>

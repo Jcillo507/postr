@@ -10,3 +10,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+input:focus {
+  outline: none;
+  text-decoration: none;
+}
+button:focus{
+  outline: none;
+  text-decoration: none;
+}
+
+

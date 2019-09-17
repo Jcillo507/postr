@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import "./postCreate.css"
 
 function PostCreate(props) {
-  console.log(props)
   return (
     <div className="post-create-ctr">
       <h2 className="create-title">Create a new post</h2>

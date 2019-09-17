@@ -43,7 +43,7 @@ getPosts = async () =>{
           {this.state.posts.map(post => (
             <Link to={`posts/${post.id}`}>
               <div className="post-ctr">
-            <h2 className="post-content">{post.content}</h2>
+            <h2 key={post.id} className="post-content">{post.content}</h2>
             </div>
             </Link>
             

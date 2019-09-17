@@ -15,7 +15,9 @@ posts-list-ctr{
   background-color: rgb(209, 224, 238);
   border: 2px black solid;
   border-radius: 10px;
-  box-shadow: 7px 7px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(150, 148, 150, 0.73);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(150, 148, 150, 0.73);
+  box-shadow: 10px 10px 5px 0px rgba(150, 148, 150, 0.73);
   margin: 20px 0 0 35%;
   font-family: 'Boogaloo',
   cursive;
@@ -26,4 +28,15 @@ posts-list-ctr{
   font-family: 'Yeon Sung',
   cursive;
   font-size: 40px;
+}
+.button{
+  margin: 20px;
+  height: 40px;
+  width: 100px;
+  font-size: 20px;
+  font-family: 'Yeon Sung',
+  cursive;
+  border-radius: 4px;
+  box-shadow: 7px 7px;
+  
 }

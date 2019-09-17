@@ -1,3 +1,9 @@
 *{
 margin: 0;
 }
+input:focus:after {
+  outline: none;
+}
+input:active:after {
+  outline: none;
+}

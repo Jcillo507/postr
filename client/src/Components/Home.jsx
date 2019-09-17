@@ -44,18 +44,19 @@ class Home extends Component {
        
       }
     }));
+    this.props.history.push("/")
   };
 
   updatePost = async (e, id) => {
     e.preventDefault()
     const { postForm } = this.state;
-    console.log(this.state)
     await updatePost(id, postForm);
     this.setState(prevState => ({
       posts: prevState.posts.map(post =>
         post.id === postForm.id ? postForm : post
       )
     }));
+    this.props.history.push("/");
   };
 
   deletePost = async id => {
@@ -63,6 +64,7 @@ class Home extends Component {
     this.setState(prevState => ({
       posts: prevState.posts.filter(post => post.id !== id)
     }));
+    this.props.history.push("/");
   };
 
   handleFormChange = e => {
