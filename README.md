@@ -1,7 +1,7 @@
 # Postr
 
 Postr is a website where you can post your thoughts
-[title](jcP4.surge.sh)
+[Postr](https://jcP4.surge.sh)
 ![screenshot](Postr.png)
 ## Technologies Used
 ### Front End
