@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://jcp4.herokuapp.com/";
 
 const api = axios.create({
   baseURL: baseUrl
