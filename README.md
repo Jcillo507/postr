@@ -1,8 +1,8 @@
 # Postr
 
 Postr is a website where you can post your thoughts
-[title] (jcP4.surge.sh)
-![screenshot] (Postr.png)
+[title](jcP4.surge.sh)
+![screenshot](Postr.png)
 ## Technologies Used
 ### Front End
 #### HTML, CSS, Javascript, React, React-Router, Axios
