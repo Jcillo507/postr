@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'users#index'
   post '/auth/login', to: 'authentication#login'
   get '/users/verify', to: 'users#verify'
   get '/feed', to: 'posts#feed'
