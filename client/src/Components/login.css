@@ -1,0 +1,31 @@
+a{
+font-size: 30px;
+font-family: 'Yeon Sung',
+cursive;
+}
+.login-title{
+  font-family: 'Yeon Sung',
+  cursive;
+  font-size: 50px;
+  margin: 10px;
+}
+.login-instr{
+  font-family: 'Yeon Sung',
+  cursive;
+  font-size: 30px;
+  margin: 10px;
+}
+.login-input{
+height: 30px;
+width: 250px;
+}
+
+.login-bttn{
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    font-family: 'Yeon Sung',
+    cursive;
+    border-radius: 4px;
+    box-shadow: 7px 7px;
+}

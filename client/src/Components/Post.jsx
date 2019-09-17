@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PostEdit from "./PostEdit";
 import { Route } from "react-router-dom";
 import { withRouter } from "react-router";
-import { updatePost } from '../services/api-helper'
+import { updatePost } from "../services/api-helper"
 
 class Post extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Post extends Component {
           <h2>Loading . . .</h2>
         ) : (
           <div>
-            <h1>{post.content}</h1>
+            <h1 className="post-content">{post.content}</h1>
             <hr />
             {this.state.isEdit ? (
               <Route

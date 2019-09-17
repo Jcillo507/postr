@@ -1,0 +1,29 @@
+a{
+  color: rgb(54, 47, 48);
+  text-decoration: none;
+}
+posts-list-ctr{
+  display: flex;
+  justify-content: space-around;
+}
+.post-ctr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 30%;
+  background-color: rgb(209, 224, 238);
+  border: 2px black solid;
+  border-radius: 10px;
+  box-shadow: 7px 7px;
+  margin: 20px 0 0 35%;
+  font-family: 'Boogaloo',
+  cursive;
+  font-size: 30px;
+  display: table;
+}
+.post-link{
+  font-family: 'Yeon Sung',
+  cursive;
+  font-size: 40px;
+}

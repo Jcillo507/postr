@@ -1,0 +1,38 @@
+.post-create-ctr{
+  display: flex;
+  flex-direction: column;
+  size:50px;
+  margin-top: 250px;
+}
+
+.create-title{
+  font-family: 'Yeon Sung',
+  cursive;
+  font-size: 50px;
+}
+.create-sub{
+  font-family: 'Yeon Sung',
+  cursive;
+  font-size: 40px;
+}
+
+.create-input{
+  height: 30px;
+  width: 250px;
+}
+
+.create-bttn{
+  height: 40px;
+  width: 100px;
+  font-size: 20px;
+  font-family: 'Yeon Sung',
+  cursive;
+  border-radius: 4px;
+  box-shadow: 7px 7px;
+}
+.post-content{
+  font-family: 'Yeon Sung',
+  cursive;
+  font-size: 50px;
+  margin: 10px;
+}

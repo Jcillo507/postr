@@ -1,0 +1,28 @@
+.signup-title{
+  font-family: 'Yeon Sung',
+  cursive;
+  font-size: 50px;
+  margin: 10px;
+}
+
+.signup-input{
+  height: 30px;
+  width: 250px;
+}
+
+.signup-instr{
+    font-family: 'Yeon Sung',
+    cursive;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.signup-bttn{
+  height: 40px;
+  width: 100px;
+  font-size: 20px;
+  font-family: 'Yeon Sung',
+  cursive;
+  border-radius: 4px;
+  box-shadow: 7px 7px;
+}

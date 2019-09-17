@@ -1,16 +1,18 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
+import "./postCreate.css"
+
 function PostCreate(props) {
-  const id = localStorage.getItem('userId')
   console.log(props)
   return (
-    <div>
-      <h2>Create a new post</h2>
+    <div className="post-create-ctr">
+      <h2 className="create-title">Create a new post</h2>
       <form onSubmit={props.createPost}>
-        <p>Post your thoughts</p>
+        <p className="create-sub"> Post your thoughts</p>
 
         <input
+        className="create-input"
           type="text"
           name="content"
           value={props.postForm.content}
@@ -18,7 +20,7 @@ function PostCreate(props) {
         />
       
         <br />
-        <button>Post</button>
+        <button className="create-bttn">Post</button>
       </form>
     </div>
   );

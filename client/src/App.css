@@ -1,15 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.header-ctr{
-  display:flex;
-  justify-content: space-between;
-}
-.header-log-button {
- margin: 20px;
-}
-
-.header-title{
-  margin: 20px;
+*{
+margin: 0;
 }

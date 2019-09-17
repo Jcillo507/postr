@@ -6,7 +6,9 @@ import './App.css'
 export default class App extends React.Component{
   render(){
     return(
-  <Home />
+      <div className="app">
+        <Home />
+      </div>
     )
   }
 }

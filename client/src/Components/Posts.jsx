@@ -1,7 +1,8 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { readAllPosts } from "../services/api-helper";
-import Post from '../components/Post'
+import './posts.css'
+
 
 class Posts extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ getPosts = async () =>{
   }
   render() {
     return (
-      <div> 
+      <div className="posts-list-ctr"> 
         <Link
           to="/new/post" 
           onClick={() =>
@@ -35,17 +36,19 @@ getPosts = async () =>{
             })
           }
         >
-          Create a new Post
+         <p className="post-link"> Post your thoughts!</p>
         </Link>
-        <div>
+        
 
           {this.state.posts.map(post => (
             <Link to={`posts/${post.id}`}>
-            <h2>{post.content}</h2>
+              <div className="post-ctr">
+            <h2 className="post-content">{post.content}</h2>
+            </div>
             </Link>
             
           ))}
-        </div>
+        
       </div>
     );
   }

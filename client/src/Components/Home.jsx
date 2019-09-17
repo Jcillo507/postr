@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import Posts from "../components/Posts";
-import Post from "../components/Post";
-import PostCreate from "../components/PostCreate";
-import Login from "../components/Login";
-import Signup from "../components/SignUp";
+import Posts from "./Posts";
+import Post from "./Post";
+import PostCreate from "./PostCreate";
+import Login from "./Login";
+import Signup from "./SignUp";
+
+import './home.css'
 
 import {
   createPost,
@@ -15,7 +17,7 @@ import {
   loginUser,
   registerUser,
   verifyUser
-} from "../services/api-helper";
+} from "../services/api-helper"
 
 class Home extends Component {
   state = {
@@ -131,9 +133,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="home">
         <header className="header-ctr">
-          <h1 className="header-title">
+          
             <Link
               to="/"
               onClick={() =>
@@ -144,19 +146,21 @@ class Home extends Component {
                 })
               }
             >
-              Postr
+              <h1 className="header-title">
+              POSTR
+              </h1>
             </Link>
-          </h1>
-          <div className="header-log-button">
+          
+          
             {this.state.currentUser ? (
               <>
                 <p>{this.state.currentUser.name}</p>
-                <button onClick={this.handleLogout}>Logout</button>
+                <button className="bttn-logout"onClick={this.handleLogout}>Logout</button>
               </>
             ) : (
-              <button onClick={this.handleLoginButton}>Login / Sign Up</button>
+              <button className="bttn-login"onClick={this.handleLoginButton}>Login / Sign Up</button>
             )}
-          </div>
+         
         </header>
         <Route
           exact
