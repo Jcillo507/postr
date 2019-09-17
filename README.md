@@ -1,24 +1,9 @@
-# README
+# Postr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Postr is a website where you can post your thoughts
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Technologies Used
+### Front End
+#### HTML, CSS, Javascript, React, React-Router, Axios
+### Backend
+#### Rails, Postgres, BCrypt, JWT, Rack-Cors
