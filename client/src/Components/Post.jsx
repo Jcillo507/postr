@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PostEdit from "./PostEdit";
 import { Route } from "react-router-dom";
 import { withRouter } from "react-router";
-import { updatePost } from '../services/api-helper'
+import { updatePost } from "../services/api-helper";
 
 class Post extends Component {
   constructor(props) {
@@ -18,14 +18,14 @@ class Post extends Component {
 
   render() {
     const { post } = this.props;
-    const id = localStorage.getItem('userId')
+    const id = localStorage.getItem("userId");
     return (
       <div>
         {post === undefined ? (
           <h2>Loading . . .</h2>
         ) : (
           <div>
-            <h1>{post.content}</h1>
+            <h1 className="post-content">{post.content}</h1>
             <hr />
             {this.state.isEdit ? (
               <Route
@@ -35,7 +35,7 @@ class Post extends Component {
                     handleFormChange={this.props.handleFormChange}
                     handleSubmit={e => {
                       e.preventDefault();
-                      
+
                       this.setState({ isEdit: false });
                       this.props.history.push(
                         `/posts/${this.props.postForm.id}`
@@ -49,6 +49,7 @@ class Post extends Component {
             ) : (
               <>
                 <button
+                  className="button"
                   onClick={() => {
                     this.setState({
                       isEdit: true
@@ -59,6 +60,7 @@ class Post extends Component {
                   Edit
                 </button>
                 <button
+                  className="button"
                   onClick={() => {
                     this.props.deletePost(post.id);
                     this.props.history.push("/");

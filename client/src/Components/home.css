@@ -1,0 +1,27 @@
+.home {
+  text-align: center;
+}
+
+.header-ctr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: rgb(29, 83, 199);
+  
+}
+.header-title{
+  font-family: 'Satisfy',
+  cursive;
+  font-size: 50px;
+  margin: 0 50px;
+  text-shadow: 2px 2px;
+  color: rgb(26, 25, 25);
+}
+
+.bttn-login{
+  margin: 0 50px;
+  height: 40px;
+  border-radius: 4px;
+  box-shadow: 7px 7px;
+}

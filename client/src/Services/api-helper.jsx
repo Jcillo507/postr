@@ -31,7 +31,6 @@ const verifyUser = async () => {
 
 const createPost = async data => {
   const resp = await api.post(`/users/${id}/posts`, { post: data });
-  console.log(data, "working");
   return resp;
 };
 
